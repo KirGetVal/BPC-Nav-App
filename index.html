@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BPC Campus Navigator — Android app for Bulacan Polytechnic College</title>
+<meta name="description" content="Offline-first Android campus map, walking route planner and room reservation app for Bulacan Polytechnic College Main Campus. Free APK download.">
+<meta name="theme-color" content="#0A1D12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📍%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        forest: { 950: '#0A1D12', 900: '#0F2A1A', 800: '#143823', 700: '#1B4A2F' },
+        bpc: { DEFAULT: '#15803D', light: '#22A653' },
+        gold: { DEFAULT: '#D9AE45', soft: '#F0D58C' },
+        mist: '#E7F1E9'
+      },
+      fontFamily: {
+        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+        body: ['"DM Sans"', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-forest-950 text-mist font-body antialiased">
+
+<a href="#download" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-gold focus:text-forest-950 focus:px-4 focus:py-2 focus:rounded-md">Skip to download</a>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 backdrop-blur bg-forest-950/80 border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 font-display font-bold text-lg">
+      <span class="grid place-items-center w-9 h-9 rounded-lg bg-bpc text-white text-lg" aria-hidden="true">📍</span>
+      <span>BPC Campus Navigator</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-mist/80" aria-label="Main">
+      <a class="hover:text-gold" href="#features">Features</a>
+      <a class="hover:text-gold" href="#install">Install</a>
+      <a class="hover:text-gold" href="#demo">Demo accounts</a>
+      <a class="hover:text-gold" href="#tech">Tech</a>
+      <a class="hover:text-gold" href="#faq">FAQ</a>
+    </nav>
+    <a href="assets/BPCCampusNav.apk" download class="apk-link inline-flex items-center gap-2 bg-gold text-forest-950 font-bold text-sm px-4 py-2 rounded-lg hover:bg-gold-soft transition-colors">Download APK</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 pt-16 pb-20 md:pt-24 md:pb-28 grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+    <div>
+      <p class="inline-flex items-center gap-2 text-sm text-gold-soft border border-gold/40 rounded-full px-3 py-1 mb-6">Course project for CT-MAD-213, Mobile Application Development</p>
+      <h1 class="font-display font-extrabold text-5xl md:text-7xl leading-[0.98] tracking-tight">Find any room at BPC Main Campus.</h1>
+      <p class="mt-6 text-lg text-mist/80 max-w-xl leading-relaxed">An Android campus map with 20 pinned facilities, walking routes along real pathways, and a room reservation system that stops double-bookings. Your data stays on your phone.</p>
+
+      <div id="download" class="mt-9 flex flex-wrap items-center gap-4 scroll-mt-24">
+        <a href="assets/BPCCampusNav.apk" download class="apk-link group inline-flex items-center gap-3 bg-gold text-forest-950 font-display font-bold text-lg px-7 py-4 rounded-xl hover:bg-gold-soft transition-colors">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+          Download for Android
+        </a>
+        <a href="#install" class="px-6 py-4 rounded-xl border border-white/20 hover:border-gold hover:text-gold font-medium transition-colors">How to install</a>
+      </div>
+
+      <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 text-sm max-w-xl">
+        <div><dt class="text-mist/50">Version</dt><dd class="font-bold" id="metaVersion">1.0.0</dd></div>
+        <div><dt class="text-mist/50">Needs</dt><dd class="font-bold">Android 7.0+</dd></div>
+        <div><dt class="text-mist/50">File size</dt><dd class="font-bold" id="metaSize">APK</dd></div>
+        <div><dt class="text-mist/50">Price</dt><dd class="font-bold">Free</dd></div>
+      </dl>
+      <p id="dlStatus" class="mt-4 text-sm min-h-[1.25rem]" role="status" aria-live="polite"></p>
+    </div>
+
+    <!-- Phone -->
+    <div class="relative mx-auto w-full max-w-[320px]">
+      <div class="phone" aria-label="Preview of the BPC Campus Navigator map screen" role="img">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <svg viewBox="0 0 300 560" class="w-full h-full block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="300" height="560" fill="#0E2417"/>
+            <!-- paths -->
+            <g stroke="#2B5A3B" stroke-width="10" stroke-linecap="round" fill="none">
+              <path d="M40 120 H260"/><path d="M40 120 V420"/><path d="M150 120 V420"/><path d="M40 300 H260"/><path d="M260 120 V300"/><path d="M40 420 H150"/>
+            </g>
+            <!-- buildings -->
+            <g fill="#1B4A2F" stroke="#2F6A45" stroke-width="1.5">
+              <rect x="62" y="140" width="64" height="62" rx="6"/>
+              <rect x="170" y="140" width="70" height="40" rx="6"/>
+              <rect x="170" y="196" width="70" height="80" rx="6"/>
+              <rect x="62" y="220" width="64" height="62" rx="6"/>
+              <rect x="62" y="320" width="64" height="78" rx="6"/>
+              <rect x="170" y="320" width="76" height="60" rx="6"/>
+            </g>
+            <!-- route -->
+            <path class="route" d="M40 420 V300 H150 V120 H260" fill="none" stroke="#D9AE45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 0"/>
+            <!-- pins -->
+            <g>
+              <circle cx="40" cy="420" r="9" fill="#fff"/><circle cx="40" cy="420" r="5" fill="#15803D"/>
+              <path d="M260 104a11 11 0 0 1 11 11c0 9-11 19-11 19s-11-10-11-19a11 11 0 0 1 11-11z" fill="#D9AE45"/><circle cx="260" cy="115" r="4" fill="#0A1D12"/>
+              <circle cx="94" cy="171" r="8" fill="#22A653" stroke="#fff" stroke-width="2"/>
+              <circle cx="205" cy="160" r="8" fill="#3B82F6" stroke="#fff" stroke-width="2"/>
+              <circle cx="205" cy="236" r="8" fill="#F97316" stroke="#fff" stroke-width="2"/>
+              <circle cx="94" cy="251" r="8" fill="#A855F7" stroke="#fff" stroke-width="2"/>
+              <circle cx="94" cy="359" r="8" fill="#EF4444" stroke="#fff" stroke-width="2"/>
+              <circle cx="208" cy="350" r="8" fill="#22A653" stroke="#fff" stroke-width="2"/>
+            </g>
+            <!-- search pill -->
+            <rect x="20" y="40" width="260" height="42" rx="21" fill="#F4FAF5"/>
+            <circle cx="44" cy="61" r="6" fill="none" stroke="#15803D" stroke-width="2.4"/><path d="M49 66l5 5" stroke="#15803D" stroke-width="2.4" stroke-linecap="round"/>
+            <text x="64" y="66" font-size="13" fill="#4B6355" font-family="DM Sans, sans-serif">Search ComLab, CR, canteen</text>
+            <!-- busy badge -->
+            <rect x="196" y="92" width="64" height="20" rx="10" fill="#7F1D1D"/><text x="206" y="106" font-size="10" font-weight="700" fill="#fff" font-family="DM Sans, sans-serif">BUSY now</text>
+            <!-- bottom card -->
+            <rect x="14" y="452" width="272" height="70" rx="16" fill="#F4FAF5"/>
+            <text x="30" y="478" font-size="14" font-weight="700" fill="#0A1D12" font-family="Bricolage Grotesque, sans-serif">Activity Center</text>
+            <text x="30" y="498" font-size="11" fill="#4B6355" font-family="DM Sans, sans-serif">Walk 240 m · 3 min</text>
+            <rect x="204" y="468" width="68" height="34" rx="17" fill="#15803D"/><text x="217" y="490" font-size="12" font-weight="700" fill="#fff" font-family="DM Sans, sans-serif">Directions</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="border-y border-white/10 bg-forest-900/60">
+  <div class="max-w-6xl mx-auto px-5 py-16 grid md:grid-cols-2 gap-10">
+    <div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl leading-tight">Campuses are confusing when you are new.</h2>
+    </div>
+    <div class="space-y-4 text-mist/80 leading-relaxed">
+      <p>Commercial maps rarely show the labs, restrooms and offices of a local college, and many need paid API keys or a steady connection.</p>
+      <p>Room scheduling is just as messy. Without one place to request and approve bookings, teachers and students end up double-booking the same room.</p>
+      <p>BPC Campus Navigator puts the directory, the routes and the approval queue in one free app.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="max-w-6xl mx-auto px-5 py-20 scroll-mt-16">
+  <h2 class="font-display font-bold text-3xl md:text-5xl max-w-2xl leading-tight">What you can do with it</h2>
+  <p class="mt-4 text-mist/70 max-w-xl">Pick a feature to see how it works.</p>
+
+  <div class="mt-10 grid lg:grid-cols-[320px_1fr] gap-8">
+    <div class="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0" role="tablist" aria-label="Features" id="featureTabs"></div>
+    <div id="featurePanel" class="rounded-2xl bg-forest-900 border border-white/10 p-7 md:p-10 min-h-[320px]" role="tabpanel" tabindex="0"></div>
+  </div>
+</section>
+
+<!-- Roles -->
+<section class="bg-forest-900/60 border-y border-white/10">
+  <div class="max-w-6xl mx-auto px-5 py-20">
+    <h2 class="font-display font-bold text-3xl md:text-4xl">Made for everyone on campus</h2>
+    <div class="mt-10 grid md:grid-cols-2 gap-x-14 gap-y-8">
+      <div class="border-l-4 border-bpc-light pl-5">
+        <h3 class="font-display font-bold text-xl">Students and enrollees</h3>
+        <p class="mt-2 text-mist/75">Find lecture rooms, ComLab 1, science labs, the NTT lab, printing and restrooms. Request a room for a study group or event.</p>
+      </div>
+      <div class="border-l-4 border-gold pl-5">
+        <h3 class="font-display font-bold text-xl">Faculty and teachers</h3>
+        <p class="mt-2 text-mist/75">Locate academic offices and the medical clinic. Book a room for a makeup class or department meeting.</p>
+      </div>
+      <div class="border-l-4 border-sky-400 pl-5">
+        <h3 class="font-display font-bold text-xl">Campus administrators</h3>
+        <p class="mt-2 text-mist/75">Approve or reject pending requests, browse the user directory and watch room utilization from one dashboard.</p>
+      </div>
+      <div class="border-l-4 border-orange-400 pl-5">
+        <h3 class="font-display font-bold text-xl">Visitors and guests</h3>
+        <p class="mt-2 text-mist/75">Spot the arch gate, canteen, activity center, stage and food stalls without asking around.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Install -->
+<section id="install" class="max-w-6xl mx-auto px-5 py-20 scroll-mt-16">
+  <h2 class="font-display font-bold text-3xl md:text-5xl">Install it in four steps</h2>
+  <p class="mt-4 text-mist/70 max-w-xl">The app is shared as an APK file, so Android will ask you to allow the install once.</p>
+  <ol class="mt-10 grid md:grid-cols-2 gap-6">
+    <li class="flex gap-5 rounded-2xl bg-forest-900 border border-white/10 p-6">
+      <span class="font-display font-extrabold text-4xl text-gold leading-none">1</span>
+      <div><h3 class="font-bold text-lg">Download the APK</h3><p class="mt-1 text-mist/70">Tap Download for Android. Keep the file in your Downloads folder.</p></div>
+    </li>
+    <li class="flex gap-5 rounded-2xl bg-forest-900 border border-white/10 p-6">
+      <span class="font-display font-extrabold text-4xl text-gold leading-none">2</span>
+      <div><h3 class="font-bold text-lg">Open the file</h3><p class="mt-1 text-mist/70">Tap the downloaded file from your browser or a file manager.</p></div>
+    </li>
+    <li class="flex gap-5 rounded-2xl bg-forest-900 border border-white/10 p-6">
+      <span class="font-display font-extrabold text-4xl text-gold leading-none">3</span>
+      <div><h3 class="font-bold text-lg">Allow the install</h3><p class="mt-1 text-mist/70">If Android blocks it, open Settings when prompted and allow installs from this browser, then go back and tap Install.</p></div>
+    </li>
+    <li class="flex gap-5 rounded-2xl bg-forest-900 border border-white/10 p-6">
+      <span class="font-display font-extrabold text-4xl text-gold leading-none">4</span>
+      <div><h3 class="font-bold text-lg">Open and allow location</h3><p class="mt-1 text-mist/70">Grant location access so the map can center on you and plan routes from where you stand.</p></div>
+    </li>
+  </ol>
+</section>
+
+<!-- Demo accounts -->
+<section id="demo" class="bg-forest-900/60 border-y border-white/10 scroll-mt-16">
+  <div class="max-w-6xl mx-auto px-5 py-20 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
+    <div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl leading-tight">Try it with a demo account</h2>
+      <p class="mt-4 text-mist/75 leading-relaxed">The app has quick sign-in buttons for testing and defense demos. Or copy a login below and type it in yourself.</p>
+    </div>
+    <div class="space-y-3" id="demoList"></div>
+  </div>
+</section>
+
+<!-- Tech + tests -->
+<section id="tech" class="max-w-6xl mx-auto px-5 py-20 scroll-mt-16">
+  <div class="grid lg:grid-cols-2 gap-14">
+    <div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl">Built with</h2>
+      <dl class="mt-8 divide-y divide-white/10 border-y border-white/10">
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">Language</dt><dd class="font-medium text-right">Kotlin 2.0.21</dd></div>
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">UI</dt><dd class="font-medium text-right">Jetpack Compose, Material 3</dd></div>
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">Navigation</dt><dd class="font-medium text-right">Single activity, Navigation Compose</dd></div>
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">Map</dt><dd class="font-medium text-right">OSMDroid 6.1.18, ESRI World Imagery</dd></div>
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">Location</dt><dd class="font-medium text-right">Android LocationManager</dd></div>
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">Storage</dt><dd class="font-medium text-right">SharedPreferences (JSON)</dd></div>
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">Routing</dt><dd class="font-medium text-right">Dijkstra shortest path</dd></div>
+        <div class="py-3 flex justify-between gap-4"><dt class="text-mist/60">Build</dt><dd class="font-medium text-right">Gradle 8.13, AGP 9.4.1</dd></div>
+      </dl>
+    </div>
+    <div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl">Tested</h2>
+      <p class="mt-3 text-mist/70">Eight unit tests cover data, search, routing and booking rules. All pass.</p>
+      <ul class="mt-6 space-y-2" id="testList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-forest-900/60 border-t border-white/10 scroll-mt-16">
+  <div class="max-w-3xl mx-auto px-5 py-20">
+    <h2 class="font-display font-bold text-3xl md:text-4xl">Questions</h2>
+    <div class="mt-8 divide-y divide-white/10 border-y border-white/10" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="max-w-6xl mx-auto px-5 py-20 text-center">
+  <h2 class="font-display font-extrabold text-4xl md:text-6xl leading-tight">Ready to find your room?</h2>
+  <p class="mt-4 text-mist/70">Free, no account needed to browse the map.</p>
+  <a href="assets/BPCCampusNav.apk" download class="apk-link mt-8 inline-flex items-center gap-3 bg-gold text-forest-950 font-display font-bold text-lg px-8 py-4 rounded-xl hover:bg-gold-soft transition-colors">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+    Download for Android
+  </a>
+</section>
+
+</main>
+
+<footer class="border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col md:flex-row gap-4 justify-between text-sm text-mist/60">
+    <p>BPC Campus Navigator v1.0.0 · Bulacan Polytechnic College, Main Campus, Malolos, Bulacan</p>
+    <p>Made by <a class="text-gold hover:underline" href="https://github.com/KirGetVal" target="_blank" rel="noopener">KGV Tech</a> for CT-MAD-213</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
