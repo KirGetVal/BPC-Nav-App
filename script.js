@@ -1,6 +1,6 @@
 /* ---------- Config: change these if your APK file is named differently ---------- */
 const APK_PATH = 'assets/BPCCampusNav.apk';
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '2.1.0';
 
 /* ---------- Content ---------- */
 const FEATURES = [
