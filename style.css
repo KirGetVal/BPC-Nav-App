@@ -1,0 +1,39 @@
+html { scroll-behavior: smooth; }
+body { background:
+  radial-gradient(900px 500px at 85% -10%, rgba(21,128,61,.28), transparent 60%),
+  #0A1D12; }
+
+:focus-visible { outline: 3px solid #D9AE45; outline-offset: 3px; border-radius: 6px; }
+
+/* Phone mockup */
+.phone {
+  position: relative;
+  aspect-ratio: 300 / 600;
+  border-radius: 44px;
+  padding: 10px;
+  background: linear-gradient(160deg, #2a3a30, #0b140e);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12), 0 40px 80px -20px rgba(0,0,0,.7), 0 0 90px -10px rgba(21,128,61,.45);
+}
+.phone-screen { height: 100%; border-radius: 34px; overflow: hidden; background: #0E2417; }
+.phone-notch { position: absolute; z-index: 2; top: 18px; left: 50%; transform: translateX(-50%); width: 80px; height: 8px; border-radius: 8px; background: #050b07; }
+
+/* The one orchestrated moment: the route draws itself once */
+.route { stroke-dasharray: 700; stroke-dashoffset: 700; animation: draw 2.4s .5s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .route { animation: none; stroke-dashoffset: 0; }
+}
+
+/* Feature tabs */
+.ftab { flex: 0 0 auto; text-align: left; padding: .85rem 1.1rem; border-radius: .85rem; border: 1px solid transparent; color: rgba(231,241,233,.75); font-weight: 500; transition: background .15s, color .15s; white-space: nowrap; }
+.ftab:hover { background: rgba(255,255,255,.05); }
+.ftab[aria-selected="true"] { background: #15803D; color: #fff; border-color: rgba(255,255,255,.15); }
+@media (min-width: 1024px) { .ftab { white-space: normal; } }
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .chev { transform: rotate(180deg); }
+.chev { transition: transform .2s; }
+
+.copy-btn.copied { background: #15803D; color: #fff; }
